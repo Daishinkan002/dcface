@@ -48,8 +48,8 @@ def main():
     parser.add_argument('--partition_idx', type=int, default=0)
 
     parser.add_argument('--save_root', type=str, default=None)
-    parser.add_argument('--id_images_root', default='sample_images/id_images/2377.jpg')
-    parser.add_argument('--style_images_root', type=str, default='sample_images/style_images/combined')
+    parser.add_argument('--id_images_root', default='sample_images/id_images/sample_32.png')
+    parser.add_argument('--style_images_root', type=str, default='sample_images/style_images/woman')
 
     parser.add_argument('--style_sampling_method', type=str, default='list',
                         choices=['random', 'feature_sim_center:topk_sampling_top1',

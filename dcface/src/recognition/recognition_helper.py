@@ -43,11 +43,13 @@ def download_ir_pretrained_statedict(backbone_name, dataset_name, loss_fn):
     checkpoint_path = os.path.join(root, 'pretrained_models', _name)
     os.makedirs(os.path.dirname(checkpoint_path), exist_ok=True)
     if not os.path.isfile(checkpoint_path):
+        print("\n\n Installing gdown")
         subprocess.check_call([sys.executable, "-m", "pip", "install", 'gdown'])
         try:
-            subprocess.check_call([os.path.expanduser('~/.local/bin/gdown'), '--id', _id])
+            subprocess.check_call(["gdown", "--id", _id])
         except:
-            subprocess.check_call([os.path.expanduser('~/anaconda3/envs/pj3/bin/gdown'), '--id', _id])
+            subprocess.check_call([os.path.expanduser('~/.local/bin/gdown'), '--id', _id])
+        
         if not os.path.isdir(os.path.dirname(checkpoint_path)):
             subprocess.check_call(['mkdir', '-p', os.path.dirname(checkpoint_path)])
         subprocess.check_call(['mv', _name, checkpoint_path])
